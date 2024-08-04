@@ -11,6 +11,10 @@
 #include <QSpinBox>
 #include <QPainter>
 
+#include <QMouseEvent>
+#include <QVector>
+
+#include "paint.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -59,6 +63,18 @@ private slots:
 
     void on_actionBrush_triggered(bool checked);
 
+    void on_But_green_clicked();
+
+    void on_But_blue_clicked();
+
+    void on_But_black_clicked();
+
+
+
+
+    void mouseMoveEvent(QMouseEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event);
+
 private:
     Ui::MainWindow *ui;
 
@@ -68,15 +84,16 @@ private:
 
     QSpinBox* _brush;
 
-     QSpinBox* _blue;
-QSpinBox* _green;
+    QVector<QLine> lines; // Список всех нарисованных линий
 
-     QSpinBox _red;
+    QLine currentLine;
 
 bool but=false;
-int i=1;
+
 protected:
-    void paintEvent(QPaintEvent *even) override;
+
+void paintEvent(QPaintEvent *event) override;
+
 
 
 };
