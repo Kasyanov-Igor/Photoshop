@@ -2,12 +2,15 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1018</width>
-    <height>656</height>
+    <width>853</width>
+    <height>510</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,8 +25,8 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>720</width>
-      <height>480</height>
+      <width>581</width>
+      <height>411</height>
      </rect>
     </property>
     <property name="maximumSize">
@@ -32,6 +35,9 @@
       <height>555555</height>
      </size>
     </property>
+    <property name="mouseTracking">
+     <bool>false</bool>
+    </property>
     <property name="text">
      <string/>
     </property>
@@ -39,8 +45,8 @@
    <widget class="QDoubleSpinBox" name="doubleSpinBox">
     <property name="geometry">
      <rect>
-      <x>960</x>
-      <y>540</y>
+      <x>620</x>
+      <y>380</y>
       <width>51</width>
       <height>41</height>
      </rect>
@@ -73,21 +79,112 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>800</x>
-      <y>110</y>
-      <width>111</width>
-      <height>91</height>
+      <x>530</x>
+      <y>210</y>
+      <width>271</width>
+      <height>61</height>
      </rect>
     </property>
    </widget>
    <widget class="QSpinBox" name="spinBox_2">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>800</x>
-      <y>200</y>
-      <width>111</width>
-      <height>71</height>
+      <x>530</x>
+      <y>270</y>
+      <width>311</width>
+      <height>21</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>20</y>
+      <width>191</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="1" column="0">
+      <widget class="QPushButton" name="But_red">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string>Red</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QPushButton" name="But_blue">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string>Blue</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QPushButton" name="But_green">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string>Green</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QPushButton" name="But_black">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string>Black</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0" colspan="2">
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>Кисть</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>120</y>
+      <width>75</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_3">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>170</y>
+      <width>75</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
     </property>
    </widget>
   </widget>
@@ -96,7 +193,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1018</width>
+     <width>853</width>
      <height>22</height>
     </rect>
    </property>
@@ -124,8 +221,15 @@
     <addaction name="menuChange_of_size"/>
     <addaction name="actionCuo_off"/>
    </widget>
+   <widget class="QMenu" name="menuPaint">
+    <property name="title">
+     <string>Paint</string>
+    </property>
+    <addaction name="actionBrush"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuView"/>
+   <addaction name="menuPaint"/>
   </widget>
   <widget class="QStatusBar" name="statusbar">
    <property name="enabled">
@@ -145,6 +249,7 @@
    <addaction name="actionNew_File"/>
    <addaction name="actionSave"/>
    <addaction name="actionOpen_File"/>
+   <addaction name="actionCuo_off"/>
   </widget>
   <action name="actionNew_File">
    <property name="icon">
@@ -199,6 +304,11 @@
   <action name="action2_3">
    <property name="text">
     <string>2:3</string>
+   </property>
+  </action>
+  <action name="actionBrush">
+   <property name="text">
+    <string>Brush</string>
    </property>
   </action>
  </widget>

@@ -2,11 +2,7 @@
 #include "./ui_mainwindow.h"
 
 
-void MainWindow::on_pushButton_clicked()
-{
 
-
-}
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -23,6 +19,11 @@ MainWindow::MainWindow(QWidget *parent)
     std::advance(it, 1);
     this->_sizeH = (QSpinBox*)*it;
     this->_sizeH->hide();
+
+     std::advance(it,1);
+    this->_brush=(QSpinBox*)*it;
+    this->_brush->hide();
+
 }
 
 MainWindow::~MainWindow()
@@ -115,29 +116,76 @@ void MainWindow::on_actionChange_of_size_triggered()
 
 void MainWindow::on_action3_4_triggered()
 {
-    ui->label->setFixedSize(720,540);
-    ui->label->show();
+    ui->label->setFixedSize(520,340);
+   // ui->label->show();
 }
 
 
 
 void MainWindow::on_action5_4_triggered()
 {
-    ui->label->setFixedSize(680,540);
-    ui->label->show();
+
+    ui->label->setFixedSize(480,340);
 }
 
 
 void MainWindow::on_action2_3_triggered()
 {
-    ui->label->setFixedSize(800,540);
-    ui->label->show();
+    ui->label->setFixedSize(600,340);
+   // ui->label->show();
 }
 
 
 void MainWindow::on_actionCuo_off_triggered()
 {
+    this->but=! this->but;
+    qDebug() <<this->but;
     this->_sizeW->show();
     this->_sizeH->show();
+    if(this->but==false)
+    {
+
+        this->_sizeW->hide();
+        this->_sizeH->hide();
+    }
+
+}
+
+void MainWindow::paintEvent(QPaintEvent *even)
+{
+
+    QPainter paint(this);
+
+    paint.setPen(QPen(Qt::black, 1, Qt::SolidLine, Qt::FlatCap));
+
+}
+void MainWindow::on_pushButton_clicked()
+{
+   // repaint(paintEvent());
+
+
+}
+
+void MainWindow::on_But_red_clicked()
+{
+
+}
+
+
+
+
+
+void MainWindow::on_actionBrush_triggered(bool checked)
+{
+
+ this->but=! this->but;
+    qDebug() <<this->but;
+ this->_brush->show();
+ if(this->but==false)
+    {
+        this->_brush->hide();
+
+    }
+
 }
 

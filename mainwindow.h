@@ -9,6 +9,8 @@
 #include <QColor>
 #include <QPainter>
 #include <QSpinBox>
+#include <QPainter>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -49,11 +51,33 @@ private slots:
 
     void on_actionCuo_off_triggered();
 
+
+
+    void on_But_red_clicked();
+
+
+
+    void on_actionBrush_triggered(bool checked);
+
 private:
     Ui::MainWindow *ui;
 
     QSpinBox* _sizeW;
 
     QSpinBox* _sizeH;
+
+    QSpinBox* _brush;
+
+     QSpinBox* _blue;
+QSpinBox* _green;
+
+     QSpinBox _red;
+
+bool but=false;
+int i=1;
+protected:
+    void paintEvent(QPaintEvent *even) override;
+
+
 };
 #endif // MAINWINDOW_H
