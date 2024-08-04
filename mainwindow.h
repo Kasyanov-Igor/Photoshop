@@ -5,6 +5,10 @@
 #include <QPixmap>
 #include <QDebug>
 #include <QFileDialog>
+#include <QImage>
+#include <QColor>
+#include <QPainter>
+#include <QSpinBox>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -31,7 +35,25 @@ private slots:
 
     void on_label_linkActivated(const QString &link);
 
+    void on_actionOpen_File_triggered();
+
+    void on_actionSave_triggered();
+
+    void on_actionChange_of_size_triggered();
+
+    void on_action3_4_triggered();
+
+    void on_action5_4_triggered();
+
+    void on_action2_3_triggered();
+
+    void on_actionCuo_off_triggered();
+
 private:
     Ui::MainWindow *ui;
+
+    QSpinBox* _sizeW;
+
+    QSpinBox* _sizeH;
 };
 #endif // MAINWINDOW_H
