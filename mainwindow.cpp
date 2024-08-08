@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+
     auto it = ui->centralwidget->children().begin();
     std::advance(it, 2);
 
@@ -76,6 +77,7 @@ void MainWindow::on_actionOpen_File_triggered()
     QPixmap pix;
 
     pix.load(str);
+    Path_directory=str;
     ui->label->setPixmap(pix);
     ui->label->setScaledContents(true);
 
@@ -118,6 +120,9 @@ void MainWindow::on_action3_4_triggered()
 {
     ui->label->setFixedSize(520,340);
    // ui->label->show();
+    QPixmap pixmap;
+    pixmap = QPixmap(Path_directory);
+       pixmap.scaled(520,340);
 }
 
 
@@ -126,6 +131,9 @@ void MainWindow::on_action5_4_triggered()
 {
 
     ui->label->setFixedSize(480,340);
+    QPixmap pixmap;
+    pixmap = QPixmap(Path_directory);
+    pixmap.scaled(480,360);
 }
 
 
@@ -133,7 +141,9 @@ void MainWindow::on_action2_3_triggered()
 {
     ui->label->setFixedSize(600,340);
    // ui->label->show();
-
+    QPixmap pixmap;
+    pixmap = QPixmap(Path_directory);
+   pixmap.scaled(600,340);
 }
 
 
@@ -201,39 +211,19 @@ void MainWindow::paintEvent(QPaintEvent *event)
 {
 
 
-   // QPainter painter(this);
 
-// QMouseEvent *eventM;
-
-   // painter.setPen(QPen(Qt::blue, 2));
 
     if(ui->But_red->isChecked())
     {
 
 
+        // Создаем экземпляр DrawingLabel и устанавливаем его в QLabel из UI
+
+       // ui->label->setWidget(drawingLabel);
+        DrawingLabel *drawingLabel = new DrawingLabel(this);
+        //ui->label->setWidget(drawingLabel);
 
 
-/*
-        painter.setPen(QPen(Qt::blue, 2));
-
-        for (int i = 0; i < this->lines.size(); ++i)
-        {
-            painter.drawLine(this->lines[i]);
-        }
-
-
-        if (eventM->buttons() & Qt::LeftButton)
-        {
-            this->currentLine.setP2(eventM->pos());
-            update();
-
-        }
-        if (eventM->button() == Qt::LeftButton)
-        {
-            // Линия завершена
-        }
-
-*/
 
     }
     else if(ui->But_green->isChecked())
@@ -252,6 +242,14 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event) {
 
 void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 {
+
+}
+
+
+void MainWindow::on_spinBox_textChanged(const QString &arg1)
+{
+
+
 
 }
 

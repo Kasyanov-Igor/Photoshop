@@ -11,8 +11,6 @@
 #include <QSpinBox>
 #include <QPainter>
 
-#include <QMouseEvent>
-#include <QVector>
 
 #include "paint.h"
 
@@ -75,6 +73,8 @@ private slots:
     void mouseMoveEvent(QMouseEvent *event);
     void mouseReleaseEvent(QMouseEvent *event);
 
+    void on_spinBox_textChanged(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
 
@@ -87,6 +87,8 @@ private:
     QVector<QLine> lines; // Список всех нарисованных линий
 
     QLine currentLine;
+
+    QString Path_directory;
 
 bool but=false;
 
