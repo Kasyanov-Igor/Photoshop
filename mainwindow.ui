@@ -79,10 +79,10 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>530</x>
-      <y>210</y>
-      <width>271</width>
-      <height>61</height>
+      <x>640</x>
+      <y>230</y>
+      <width>161</width>
+      <height>41</height>
      </rect>
     </property>
    </widget>
@@ -92,10 +92,10 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>530</x>
-      <y>270</y>
-      <width>311</width>
-      <height>21</height>
+      <x>640</x>
+      <y>271</y>
+      <width>161</width>
+      <height>41</height>
      </rect>
     </property>
    </widget>
@@ -109,16 +109,6 @@
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="1" column="0">
-      <widget class="QPushButton" name="But_red">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="text">
-        <string>Red</string>
-       </property>
-      </widget>
-     </item>
      <item row="3" column="0">
       <widget class="QPushButton" name="But_blue">
        <property name="enabled">
@@ -159,33 +149,17 @@
        </property>
       </widget>
      </item>
+     <item row="1" column="0">
+      <widget class="QCheckBox" name="But_red">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string>Red</string>
+       </property>
+      </widget>
+     </item>
     </layout>
-   </widget>
-   <widget class="QPushButton" name="pushButton_2">
-    <property name="geometry">
-     <rect>
-      <x>520</x>
-      <y>120</y>
-      <width>75</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_3">
-    <property name="geometry">
-     <rect>
-      <x>530</x>
-      <y>170</y>
-      <width>75</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
-    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -220,6 +194,7 @@
     </widget>
     <addaction name="menuChange_of_size"/>
     <addaction name="actionCuo_off"/>
+    <addaction name="actionZoom"/>
    </widget>
    <widget class="QMenu" name="menuPaint">
     <property name="title">
@@ -250,6 +225,7 @@
    <addaction name="actionSave"/>
    <addaction name="actionOpen_File"/>
    <addaction name="actionCuo_off"/>
+   <addaction name="actionZoom"/>
   </widget>
   <action name="actionNew_File">
    <property name="icon">
@@ -309,6 +285,14 @@
   <action name="actionBrush">
    <property name="text">
     <string>Brush</string>
+   </property>
+  </action>
+  <action name="actionZoom">
+   <property name="icon">
+    <iconset theme="QIcon::ThemeIcon::ZoomIn"/>
+   </property>
+   <property name="text">
+    <string>Zoom</string>
    </property>
   </action>
  </widget>
