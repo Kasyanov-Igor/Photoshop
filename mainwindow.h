@@ -10,9 +10,11 @@
 #include <QPainter>
 #include <QSpinBox>
 #include <QPainter>
+#include <QApplication>
+#include <QMessageBox>
+#include <QInputDialog>
+#include <QMouseEvent>
 
-
-#include "paint.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -29,6 +31,8 @@ public:
     ~MainWindow();
 
 private slots:
+
+
     void on_doubleSpinBox_valueChanged(double arg1);
 
     void on_actionNew_File_triggered();
@@ -70,13 +74,30 @@ private slots:
 
 
 
-    void mouseMoveEvent(QMouseEvent *event);
-    void mouseReleaseEvent(QMouseEvent *event);
 
     void on_spinBox_textChanged(const QString &arg1);
 
+
+
+    void on_actionZoom_triggered(bool checked);
+
+    void on_pushButton_Text_clicked();
+    void mousePressEvent(QMouseEvent *event) override ;
+
+    void mouseMoveEvent(QMouseEvent *event) override;
+
+    void mouseReleaseEvent(QMouseEvent *event) override;
+
+    void on_pushButton_Rectangle_clicked();
+
+
+
+    void on_checkBox_2_clicked();
+
 private:
     Ui::MainWindow *ui;
+
+    QSpinBox* _SpinBox_Zoom;
 
     QSpinBox* _sizeW;
 
@@ -90,11 +111,18 @@ private:
 
     QString Path_directory;
 
+    QPixmap _PixmapSave;
+
+    QPoint _lastPoint;
+
+    QPoint _textPoint;
+
 bool but=false;
 
 protected:
 
 void paintEvent(QPaintEvent *event) override;
+
 
 
 
