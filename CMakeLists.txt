@@ -23,7 +23,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(Phot_1_0
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-        paint.h paint.cpp
+
+
 
     )
 # Define target properties for Android with Qt 6 as:
