@@ -29,8 +29,6 @@ MainWindow::MainWindow(QWidget *parent)
     this->_brush=(QSpinBox*)*it;
     this->_brush->hide();
 
-
-
 }
 
 void MainWindow::mousePressEvent(QMouseEvent *event)
@@ -44,16 +42,29 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event)
 {
     QPainter painter(&this->_PixmapSave);
 
+
+
     if (event->buttons() & Qt::LeftButton && ui->But_red->isChecked())
     {
-        QPen line(Qt::red, 3, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin);
+
+        QPen line(Qt::red);
+
+
         if(ui->checkBox_2->isChecked())
         {
-
+            line.setWidth(2);
         }
         if(ui->checkBox_3->isChecked())
         {
-
+            line.setWidth(3);
+        }
+        if(ui->checkBox_4->isChecked())
+        {
+            line.setWidth(4);
+        }
+        if(ui->checkBox_5->isChecked())
+        {
+            line.setWidth(5);
         }
 
         painter.setPen(QPen(line));
@@ -63,26 +74,80 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event)
     if (event->buttons() & Qt::LeftButton && ui->But_green->isChecked())
     {
 
-        painter.setPen(QPen(Qt::green, 3, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
+        QPen line(Qt::green);
+
+
+        if(ui->checkBox_2->isChecked())
+        {
+            line.setWidth(2);
+        }
+        if(ui->checkBox_3->isChecked())
+        {
+            line.setWidth(3);
+        }
+        if(ui->checkBox_4->isChecked())
+        {
+            line.setWidth(4);
+        }
+        if(ui->checkBox_5->isChecked())
+        {
+            line.setWidth(5);
+        }
+
+        painter.setPen(QPen(line));
         painter.drawLine(_lastPoint, event->pos());
 
     }
     if (event->buttons() & Qt::LeftButton && ui->But_blue->isChecked())
     {
 
-        painter.setPen(QPen(Qt::blue, 3, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
+        QPen line(Qt::blue);
+
+        if(ui->checkBox_2->isChecked())
+        {
+            line.setWidth(2);
+        }
+        if(ui->checkBox_3->isChecked())
+        {
+            line.setWidth(3);
+        }
+        if(ui->checkBox_4->isChecked())
+        {
+            line.setWidth(4);
+        }
+        if(ui->checkBox_5->isChecked())
+        {
+            line.setWidth(5);
+        }
+
+        painter.setPen(QPen(line));
         painter.drawLine(_lastPoint, event->pos());
     }
     if (event->buttons() & Qt::LeftButton && ui->But_black->isChecked())
     {
+        QPen line(Qt::black);
 
-        painter.setPen(QPen(Qt::black, 3, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
+
+        if(ui->checkBox_2->isChecked())
+        {
+            line.setWidth(2);
+        }
+        if(ui->checkBox_3->isChecked())
+        {
+            line.setWidth(3);
+        }
+        if(ui->checkBox_4->isChecked())
+        {
+            line.setWidth(4);
+        }
+        if(ui->checkBox_5->isChecked())
+        {
+            line.setWidth(5);
+        }
+
+        painter.setPen(QPen(line));
         painter.drawLine(_lastPoint, event->pos());
     }
-    //if (event->button() == Qt::LeftButton)
-   // {
-       //this-> _textPoint = event->pos();
-   // }
 
     _lastPoint = event->pos();
     ui->label->setPixmap(this->_PixmapSave);
@@ -111,7 +176,7 @@ void MainWindow::on_doubleSpinBox_valueChanged(double arg1)
 
 void MainWindow::on_actionNew_File_triggered()
 {
-    QImage image(720 , 480, QImage::Format_ARGB32);
+    QImage image(_pixesHorizontally , _pixelsVertical, QImage::Format_ARGB32);
 
     image.fill(QColor(255, 255, 255));
 
@@ -144,30 +209,27 @@ void MainWindow::on_actionOpen_File_triggered()
     str = QFileDialog::getOpenFileName(this,"Open","c:/");
 
    this-> _PixmapSave.load(str);
-    QPixmap pix;
+    QPixmap pix(_pixesHorizontally,_pixelsVertical);
 
     pix.load(str);
     Path_directory=str;
     ui->label->setPixmap(pix);
     ui->label->setScaledContents(true);
 
+    pix.width();
     int pix1=pix.width();
     int label1=ui->label->width();
     double factor = double(label1)/pix1;
-    // qDebug()<<pix1;
-    // qDebug()<<label1;
-    //qDebug()<<factor;
 
-    ui->label->setFixedWidth(factor * ui->label->pixmap().width());
-    ui->label->setFixedHeight(factor * ui->label->pixmap().height());
 }
 
 
 void MainWindow::on_actionSave_triggered()
 {
-     QString fileName = QFileDialog::getSaveFileName(this,  tr("Open Image"), "c:/", tr("Image Files (*.png *.jpg *.bmp)"));
+    QString fileName = QFileDialog::getSaveFileName(this,  tr("Open Image"), "c:/", tr("Image Files (*.png *.jpg *.bmp)"));
 
-    QImage image = ui->label->pixmap().toImage();
+   // QImage image = ui->label->pixmap().toImage();
+    QImage image = _PixmapSave.toImage();
 
     // Сохраните изображение в формате PNG
     if (image.save(fileName, "PNG")) {
@@ -269,27 +331,7 @@ void MainWindow::on_actionBrush_triggered(bool checked)
 
 }
 
-void MainWindow::paintEvent(QPaintEvent *event)
-{
 
-
-
-
-    if(ui->But_red->isChecked())
-    {
-
-
-
-    }
-    else if(ui->But_green->isChecked())
-    {
-
-    }
-    else if(ui->But_blue->isChecked())
-    {
-
-    }
-}
 
 
 

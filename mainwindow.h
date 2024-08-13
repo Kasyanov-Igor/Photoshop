@@ -117,11 +117,14 @@ private:
 
     QPoint _textPoint;
 
+    int _pixesHorizontally=720;
+    int _pixelsVertical=480;
+
 bool but=false;
 
 protected:
 
-void paintEvent(QPaintEvent *event) override;
+
 
 
 
